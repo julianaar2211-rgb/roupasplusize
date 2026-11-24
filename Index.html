@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Moda Plus Size Elegante</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nude: {
+                            50: '#FAF7F5',
+                            100: '#F5EFEB',
+                            200: '#E8DFD8',
+                            300: '#D8C3B3',
+                            400: '#C2A792',
+                        },
+                        terracotta: {
+                            500: '#C87D55',
+                            600: '#B26741',
+                        },
+                        olive: {
+                            800: '#2C3E35',
+                            900: '#1E2B25',
+                        },
+                        charcoal: '#2D2D2D',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles for Subtle Transitions and WhatsApp UI */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #2D2D2D;
+            background-color: #FAF7F5;
+        }
+        h1, h2, h3, h4, .font-serif-custom {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .bg-pattern {
+            background-image: radial-gradient(#D8C3B3 0.75px, transparent 0.75px);
+            background-size: 16px 16px;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5EFEB;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D8C3B3;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C87D55;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-terracotta-500 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-olive-800 text-nude-100 text-xs text-center py-2 px-4 tracking-widest uppercase font-medium">
+        ✨ Frete Grátis em compras acima de R$ 399 | Primeira Troca Sem Custo
+    </div>
+
+    <!-- Sticky Navigation Header -->
+    <header class="sticky top-0 z-40 bg-nude-100/90 backdrop-blur-md border-b border-nude-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex flex-col items-start group">
+                <span class="font-serif text-3xl font-bold tracking-wider text-olive-800 group-hover:text-terracotta-500 transition">AURA</span>
+                <span class="text-[9px] uppercase tracking-[0.25em] text-charcoal/70 -mt-1 font-semibold">Moda Plus Size Elegante</span>
+            </a>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-wider font-medium text-charcoal/80">
+                <a href="#colecoes" class="hover:text-terracotta-500 transition">Coleções</a>
+                <a href="#consultoria" class="hover:text-terracotta-500 transition">Atendimento VIP</a>
+                <a href="#vip" class="hover:text-terracotta-500 transition">Lançamento</a>
+                <a href="#depoimentos" class="hover:text-terracotta-500 transition">Depoimentos</a>
+                <a href="#faq" class="hover:text-terracotta-500 transition">Dúvidas</a>
+            </nav>
+
+            <!-- Header Action Button (WhatsApp) -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20receber%20a%20consultoria%20personalizada%20da%20AURA." 
+                   target="_blank" 
+                   class="inline-flex items-center gap-2 bg-olive-800 hover:bg-olive-900 text-nude-100 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition shadow-sm hover:shadow">
+                    <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i>
+                    <span>Falar no WhatsApp</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-olive-800 focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-nude-100 border-b border-nude-200 px-6 py-4 space-y-3">
+            <a href="#colecoes" class="block text-sm uppercase tracking-wider text-charcoal py-2 hover:text-terracotta-500">Coleções</a>
+            <a href="#consultoria" class="block text-sm uppercase tracking-wider text-charcoal py-2 hover:text-terracotta-500">Atendimento VIP</a>
+            <a href="#vip" class="block text-sm uppercase tracking-wider text-charcoal py-2 hover:text-terracotta-500">Lançamento</a>
+            <a href="#depoimentos" class="block text-sm uppercase tracking-wider text-charcoal py-2 hover:text-terracotta-500">Depoimentos</a>
+            <a href="#faq" class="block text-sm uppercase tracking-wider text-charcoal py-2 hover:text-terracotta-500">Dúvidas</a>
+            <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20receber%20a%20consultoria%20personalizada%20da%20AURA." 
+               target="_blank" 
+               class="flex items-center justify-center gap-2 bg-olive-800 text-nude-100 py-3 rounded-xl text-xs uppercase tracking-wider font-semibold">
+                <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i>
+                Falar com Consultora
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-nude-100 overflow-hidden py-12 lg:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Copy & CTAs -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left z-10">
+                    <span class="inline-block text-terracotta-500 font-semibold tracking-widest text-xs uppercase bg-nude-200/60 px-3 py-1 rounded-full border border-nude-300">
+                        Curadoria Moda Plus Size • Tamanhos 44 ao 56
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif text-olive-800 leading-[1.15] font-normal">
+                        Sua elegância não depende de tamanho. <br class="hidden sm:inline"/>
+                        <span class="italic font-light text-terracotta-500">Vista a sua melhor versão.</span>
+                    </h1>
+                    <p class="text-charcoal/80 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Peças exclusivas com modelagem pensada rigorosamente para valorizar suas curvas. Caimento impecável, tecidos nobres e o atendimento atencioso que você realmente merece.
+                    </p>
+                    
+                    <!-- Call to Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20ver%20o%20catálogo%20completo%20de%20peças%20Plus%20Size." 
+                           target="_blank" 
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-olive-800 hover:bg-olive-900 text-nude-100 px-8 py-4 rounded-full font-medium text-sm tracking-wider uppercase transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                            <i class="fa-brands fa-whatsapp text-xl text-emerald-400"></i>
+                            <span>Ver Peças no WhatsApp</span>
+                        </a>
+                        <a href="#vip" 
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent hover:bg-nude-200 text-olive-800 border border-olive-800/30 px-8 py-4 rounded-full font-medium text-sm tracking-wider uppercase transition">
+                            <i class="fa-regular fa-star text-terracotta-500"></i>
+                            <span>Entrar na Lista VIP</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust indicators -->
+                    <div class="pt-6 flex items-center justify-center lg:justify-start space-x-6 text-xs text-charcoal/70">
+                        <span class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-check text-terracotta-500"></i> Provador Virtual via WhatsApp
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-check text-terracotta-500"></i> Troca Descomplicada
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Hero Visual Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Background Decorative Shape -->
+                        <div class="absolute -top-4 -left-4 w-72 h-72 bg-nude-300/40 rounded-full blur-2xl -z-10"></div>
+                        <div class="absolute -bottom-6 -right-6 w-80 h-80 bg-terracotta-500/10 rounded-full blur-3xl -z-10"></div>
+                        
+                        <!-- Main Fashion Image -->
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-nude-50">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80" 
+                                 alt="Mulher plus size elegante com look sofisticado da AURA" 
+                                 class="w-full h-[520px] object-cover object-top hover:scale-105 transition duration-700">
+                            
+                            <!-- Floating Tag -->
+                            <div class="absolute bottom-6 left-6 right-6 bg-nude-100/90 backdrop-blur-md p-4 rounded-xl border border-nude-200/80 shadow-lg">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-xs uppercase tracking-widest text-terracotta-500 font-semibold">Nova Coleção</p>
+                                        <p class="font-serif text-lg text-olive-800 font-bold">Alfaiataria Sublime</p>
+                                    </div>
+                                    <span class="text-xs font-medium bg-olive-800 text-nude-100 px-3 py-1 rounded-full">44 ao 56</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BARRA DE DIFERENCIAIS -->
+    <section class="bg-nude-200/70 border-y border-nude-300/60 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Diferencial 1 -->
+                <div class="flex flex-col items-center text-center space-y-2">
+                    <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-terracotta-500 shadow-sm border border-nude-300">
+                        <i class="fa-solid fa-ruler-horizontal text-lg"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-olive-800">Modelagem Real</h3>
+                    <p class="text-xs text-charcoal/70 leading-relaxed max-w-[200px]">Projetada do 44 ao 56 respeitando as curvas reais.</p>
+                </div>
+
+                <!-- Diferencial 2 -->
+                <div class="flex flex-col items-center text-center space-y-2">
+                    <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-terracotta-500 shadow-sm border border-nude-300">
+                        <i class="fa-solid fa-gem text-lg"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-olive-800">Tecidos Nobres</h3>
+                    <p class="text-xs text-charcoal/70 leading-relaxed max-w-[200px]">Toque suave, caimento fluido e alta durabilidade.</p>
+                </div>
+
+                <!-- Diferencial 3 -->
+                <div class="flex flex-col items-center text-center space-y-2">
+                    <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-terracotta-500 shadow-sm border border-nude-300">
+                        <i class="fa-solid fa-comments text-lg"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-olive-800">Atendimento Humanizado</h3>
+                    <p class="text-xs text-charcoal/70 leading-relaxed max-w-[200px]">Consultoria individualizada via WhatsApp.</p>
+                </div>
+
+                <!-- Diferencial 4 -->
+                <div class="flex flex-col items-center text-center space-y-2">
+                    <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-terracotta-500 shadow-sm border border-nude-300">
+                        <i class="fa-solid fa-rotate-left text-lg"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-olive-800">1ª Troca Grátis</h3>
+                    <p class="text-xs text-charcoal/70 leading-relaxed max-w-[200px]">Tranquilidade total na sua primeira compra.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VITRINE DE COLEÇÕES COM FILTRO INTERATIVO -->
+    <section id="colecoes" class="py-20 bg-FAF7F5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+                <span class="text-terracotta-500 font-semibold tracking-widest text-xs uppercase">Curadoria & Destaques</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif text-olive-800 font-normal">Coleções Criadas Para Encantar</h2>
+                <p class="text-charcoal/70 text-sm sm:text-base font-light">Explore nossas categorias e clique nas peças para tirar dúvidas ou solicitar fotos detalhadas com nossa consultora.</p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="flex justify-center mb-10 overflow-x-auto pb-2 scrollbar-none">
+                <div class="inline-flex bg-nude-200/80 p-1.5 rounded-full border border-nude-300/60 space-x-2 text-xs sm:text-sm font-medium">
+                    <button onclick="filterCategory('todos')" id="tab-todos" class="tab-btn active bg-olive-800 text-nude-100 px-6 py-2.5 rounded-full transition duration-300">
+                        Todas as Peças
+                    </button>
+                    <button onclick="filterCategory('alfaiataria')" id="tab-alfaiataria" class="tab-btn text-charcoal hover:text-terracotta-500 px-6 py-2.5 rounded-full transition duration-300">
+                        Alfaiataria & Trabalho
+                    </button>
+                    <button onclick="filterCategory('vestidos')" id="tab-vestidos" class="tab-btn text-charcoal hover:text-terracotta-500 px-6 py-2.5 rounded-full transition duration-300">
+                        Vestidos & Fluidos
+                    </button>
+                    <button onclick="filterCategory('casuais')" id="tab-casuais" class="tab-btn text-charcoal hover:text-terracotta-500 px-6 py-2.5 rounded-full transition duration-300">
+                        Essenciais Casuais
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Product Card 1 -->
+                <div class="product-card group bg-nude-100 rounded-2xl overflow-hidden border border-nude-200 shadow-sm hover:shadow-xl transition duration-500 flex flex-col" data-category="alfaiataria">
+                    <div class="relative overflow-hidden aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=700&q=80" 
+                             alt="Blazer Alfaiataria Paris" 
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700">
+                        <span class="absolute top-4 left-4 bg-olive-800 text-nude-100 text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
+                            Tamanhos 46 ao 56
+                        </span>
+                        <div class="absolute inset-0 bg-olive-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                            <button onclick="openProductModal('Blazer Alfaiataria Paris', 'Estruturado com caimento impecável, lapela alongada e tecido nobre que não amassa fácil.', 'R$ 389,00', 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=700&q=80')" 
+                                    class="bg-nude-100 text-olive-800 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-md hover:bg-terracotta-500 hover:text-white transition">
+                                Quick View / Detalhes
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-[11px] uppercase tracking-widest text-terracotta-500 font-semibold">Alfaiataria</span>
+                            <h3 class="font-serif text-2xl text-olive-800 font-bold mt-1">Blazer Estruturado Paris</h3>
+                            <p class="text-xs text-charcoal/70 line-clamp-2 mt-1">Modelagem acinturada com elasticidade estratégica para conforto nos braços e ombros.</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-nude-200">
+                            <div>
+                                <span class="text-xs text-charcoal/50 block">A partir de</span>
+                                <span class="font-bold text-olive-800 text-lg">R$ 389,00</span>
+                            </div>
+                            <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20consultar%20disponibilidade%20do%20Blazer%20Estruturado%20Paris." 
+                               target="_blank" 
+                               class="inline-flex items-center gap-1.5 text-xs font-semibold text-terracotta-500 hover:text-terracotta-600 transition">
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                                <span>Consultar Peça</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card group bg-nude-100 rounded-2xl overflow-hidden border border-nude-200 shadow-sm hover:shadow-xl transition duration-500 flex flex-col" data-category="vestidos">
+                    <div class="relative overflow-hidden aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80" 
+                             alt="Vestido Midi Fluido Aurora" 
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700">
+                        <span class="absolute top-4 left-4 bg-terracotta-500 text-nude-100 text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
+                            Mais Vendido
+                        </span>
+                        <div class="absolute inset-0 bg-olive-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                            <button onclick="openProductModal('Vestido Midi Fluido Aurora', 'Decote transpassado que valoriza o colo, cintura demarcada com elástico suave e saia esvoaçante.', 'R$ 349,00', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80')" 
+                                    class="bg-nude-100 text-olive-800 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-md hover:bg-terracotta-500 hover:text-white transition">
+                                Quick View / Detalhes
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-[11px] uppercase tracking-widest text-terracotta-500 font-semibold">Vestidos</span>
+                            <h3 class="font-serif text-2xl text-olive-800 font-bold mt-1">Vestido Midi Transpassado Aurora</h3>
+                            <p class="text-xs text-charcoal/70 line-clamp-2 mt-1">Caimento leve e movimento elegante. Ideal para eventos ou produções casuais chic.</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-nude-200">
+                            <div>
+                                <span class="text-xs text-charcoal/50 block">A partir de</span>
+                                <span class="font-bold text-olive-800 text-lg">R$ 349,00</span>
+                            </div>
+                            <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20Vestido%20Midi%20Transpassado%20Aurora." 
+                               target="_blank" 
+                               class="inline-flex items-center gap-1.5 text-xs font-semibold text-terracotta-500 hover:text-terracotta-600 transition">
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                                <span>Consultar Peça</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card group bg-nude-100 rounded-2xl overflow-hidden border border-nude-200 shadow-sm hover:shadow-xl transition duration-500 flex flex-col" data-category="casuais">
+                    <div class="relative overflow-hidden aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?auto=format&fit=crop&w=700&q=80" 
+                             alt="Calça Pantalona Liocel" 
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700">
+                        <span class="absolute top-4 left-4 bg-olive-800 text-nude-100 text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
+                            Tamanhos 44 ao 54
+                        </span>
+                        <div class="absolute inset-0 bg-olive-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                            <button onclick="openProductModal('Calça Pantalona Premium Liocel', 'Cós alto com elástico traseiro leve, bolsos faca e caimento reto ultra sofisticado.', 'R$ 299,00', 'https://images.unsplash.com/photo-1554412933-514a83d2f3c8?auto=format&fit=crop&w=700&q=80')" 
+                                    class="bg-nude-100 text-olive-800 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-md hover:bg-terracotta-500 hover:text-white transition">
+                                Quick View / Detalhes
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-[11px] uppercase tracking-widest text-terracotta-500 font-semibold">Casuais Chic</span>
+                            <h3 class="font-serif text-2xl text-olive-800 font-bold mt-1">Calça Pantalona Premium Liocel</h3>
+                            <p class="text-xs text-charcoal/70 line-clamp-2 mt-1">Conforto absoluto com sofisticação. Combina perfeitamente com regatas ou blazers.</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-nude-200">
+                            <div>
+                                <span class="text-xs text-charcoal/50 block">A partir de</span>
+                                <span class="font-bold text-olive-800 text-lg">R$ 299,00</span>
+                            </div>
+                            <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Calça%20Pantalona%20Premium%20Liocel." 
+                               target="_blank" 
+                               class="inline-flex items-center gap-1.5 text-xs font-semibold text-terracotta-500 hover:text-terracotta-600 transition">
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                                <span>Consultar Peça</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card group bg-nude-100 rounded-2xl overflow-hidden border border-nude-200 shadow-sm hover:shadow-xl transition duration-500 flex flex-col" data-category="alfaiataria">
+                    <div class="relative overflow-hidden aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=700&q=80" 
+                             alt="Camisa de Seda Sintética Elegance" 
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-olive-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                            <button onclick="openProductModal('Camisa Fluida Elegance', 'Modelagem solta com botões encapados, punho marcante e toque acetinado deslumbrante.', 'R$ 279,00', 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=700&q=80')" 
+                                    class="bg-nude-100 text-olive-800 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-md hover:bg-terracotta-500 hover:text-white transition">
+                                Quick View / Detalhes
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-[11px] uppercase tracking-widest text-terracotta-500 font-semibold">Alfaiataria</span>
+                            <h3 class="font-serif text-2xl text-olive-800 font-bold mt-1">Camisa Fluida Elegance</h3>
+                            <p class="text-xs text-charcoal/70 line-clamp-2 mt-1">Versátil e imponente. Funciona do ambiente corporativo ao jantar de fim de semana.</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-nude-200">
+                            <div>
+                                <span class="text-xs text-charcoal/50 block">A partir de</span>
+                                <span class="font-bold text-olive-800 text-lg">R$ 279,00</span>
+                            </div>
+                            <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20ver%20as%20cores%20disponíveis%20da%20Camisa%20Fluida%20Elegance." 
+                               target="_blank" 
+                               class="inline-flex items-center gap-1.5 text-xs font-semibold text-terracotta-500 hover:text-terracotta-600 transition">
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                                <span>Consultar Peça</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="product-card group bg-nude-100 rounded-2xl overflow-hidden border border-nude-200 shadow-sm hover:shadow-xl transition duration-500 flex flex-col" data-category="vestidos">
+                    <div class="relative overflow-hidden aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=700&q=80" 
+                             alt="Vestido Longo Envelope" 
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-olive-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                            <button onclick="openProductModal('Vestido Longo Wrap Bella', 'Ajuste personalizado na cintura, manga 3/4 charmosa e decote em V valorizador.', 'R$ 399,00', 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=700&q=80')" 
+                                    class="bg-nude-100 text-olive-800 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-md hover:bg-terracotta-500 hover:text-white transition">
+                                Quick View / Detalhes
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-[11px] uppercase tracking-widest text-terracotta-500 font-semibold">Vestidos</span>
+                            <h3 class="font-serif text-2xl text-olive-800 font-bold mt-1">Vestido Longo Wrap Bella</h3>
+                            <p class="text-xs text-charcoal/70 line-clamp-2 mt-1">Aquele vestido curinga que abraça as formas com muita elegância.</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-nude-200">
+                            <div>
+                                <span class="text-xs text-charcoal/50 block">A partir de</span>
+                                <span class="font-bold text-olive-800 text-lg">R$ 399,00</span>
+                            </div>
+                            <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20consultar%20o%20Vestido%20Longo%20Wrap%20Bella." 
+                               target="_blank" 
+                               class="inline-flex items-center gap-1.5 text-xs font-semibold text-terracotta-500 hover:text-terracotta-600 transition">
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                                <span>Consultar Peça</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="product-card group bg-nude-100 rounded-2xl overflow-hidden border border-nude-200 shadow-sm hover:shadow-xl transition duration-500 flex flex-col" data-category="casuais">
+                    <div class="relative overflow-hidden aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=700&q=80" 
+                             alt="Kimono em Linho Misto" 
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-olive-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                            <button onclick="openProductModal('Kimono Manta em Linho', 'Terceira peça perfeita para compor looks de sobreposição modernos e sofisticados.', 'R$ 249,00', 'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=700&q=80')" 
+                                    class="bg-nude-100 text-olive-800 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-md hover:bg-terracotta-500 hover:text-white transition">
+                                Quick View / Detalhes
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-[11px] uppercase tracking-widest text-terracotta-500 font-semibold">Casuais Chic</span>
+                            <h3 class="font-serif text-2xl text-olive-800 font-bold mt-1">Kimono Manta Linho Soft</h3>
+                            <p class="text-xs text-charcoal/70 line-clamp-2 mt-1">Ideal para dar aquele toque de autoridade e estilo a qualquer look básico.</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-nude-200">
+                            <div>
+                                <span class="text-xs text-charcoal/50 block">A partir de</span>
+                                <span class="font-bold text-olive-800 text-lg">R$ 249,00</span>
+                            </div>
+                            <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20Kimono%20Manta%20Linho%20Soft." 
+                               target="_blank" 
+                               class="inline-flex items-center gap-1.5 text-xs font-semibold text-terracotta-500 hover:text-terracotta-600 transition">
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                                <span>Consultar Peça</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONSULTORIA CONSULTIVA E SIMULADOR INTERATIVO WHATSAPP -->
+    <section id="consultoria" class="py-20 bg-nude-200/50 relative overflow-hidden border-y border-nude-300/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Info Section -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-terracotta-500 font-semibold tracking-widest text-xs uppercase">Atendimento Sob Medida</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif text-olive-800 leading-tight">
+                        Experimente a Consultoria de Estilo Online
+                    </h2>
+                    <p class="text-charcoal/80 text-sm sm:text-base leading-relaxed font-light">
+                        Comprar roupas online não precisa ser um jogo de adivinhação. Nossas consultoras analisam seu biotipo, tiram dúvidas de medidas com fita métrica em tempo real e enviam vídeos detalhados das peças no corpo.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-olive-800 text-nude-100 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-tape text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-lg text-olive-800">Conferência Exata de Medidas</h4>
+                                <p class="text-xs text-charcoal/70">Comparamos as medidas da peça escolhida com as suas medidas corporais reais.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-olive-800 text-nude-100 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-shirt text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-lg text-olive-800">Sugestão de Composições</h4>
+                                <p class="text-xs text-charcoal/70">Montamos opções de looks completos de acordo com sua rotina e estilo pessoal.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20iniciar%20uma%20consultoria%20de%20estilo%20personalizada." 
+                           target="_blank" 
+                           class="inline-flex items-center gap-3 bg-olive-800 hover:bg-olive-900 text-nude-100 px-8 py-4 rounded-full font-medium text-sm tracking-wider uppercase transition shadow-md">
+                            <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i>
+                            <span>Iniciar Consultoria Gratuita</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Interactive WhatsApp Chat Simulator -->
+                <div class="lg:col-span-6">
+                    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200 max-w-md mx-auto">
+                        <!-- Chat Header -->
+                        <div class="bg-olive-800 text-white p-4 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="relative">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Consultora AURA" class="w-10 h-10 rounded-full object-cover border-2 border-nude-300">
+                                    <span class="w-3 h-3 bg-emerald-500 rounded-full absolute bottom-0 right-0 border-2 border-olive-800"></span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm">Juliana • Consultora AURA</h4>
+                                    <p class="text-[10px] text-nude-200">Online agora para te ajudar</p>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-white/10 px-2.5 py-1 rounded-full">WhatsApp</span>
+                        </div>
+
+                        <!-- Chat Messages Container -->
+                        <div id="chat-box" class="p-4 bg-[#E5DDD5] h-[340px] overflow-y-auto space-y-3 text-xs">
+                            <div class="text-center my-2">
+                                <span class="bg-white/80 text-gray-500 text-[10px] px-3 py-1 rounded-full shadow-sm">Hoje</span>
+                            </div>
+
+                            <!-- Message 1 from Consultora -->
+                            <div class="flex items-end gap-2">
+                                <div class="bg-white p-3 rounded-2xl rounded-bl-none shadow-sm max-w-[80%] text-gray-800 space-y-1">
+                                    <p class="font-semibold text-[11px] text-olive-800">Juliana (AURA)</p>
+                                    <p>Olá, querida! Seja bem-vinda à AURA. 🌸 Como posso te ajudar a encontrar o look ideal hoje?</p>
+                                    <span class="text-[9px] text-gray-400 block text-right">14:30</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Options Area -->
+                        <div class="p-3 bg-gray-50 border-t border-gray-200 space-y-2">
+                            <p class="text-[11px] font-semibold text-gray-500 mb-1 px-1">Clique para simular a conversa:</p>
+                            <div class="grid grid-cols-1 gap-1.5">
+                                <button onclick="sendChatMessage('Quero saber qual tamanho escolher para meu quadril.', 'Com certeza! Me passe a medida em centímetros do seu quadril ou busto que indico exatamente a numeração perfeita para você (do 44 ao 56).')" 
+                                        class="text-left text-xs bg-white hover:bg-nude-100 text-olive-800 p-2.5 rounded-xl border border-gray-200 transition font-medium flex items-center justify-between">
+                                    <span>📐 Dúvida sobre Tamanho/Medidas</span>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-terracotta-500"></i>
+                                </button>
+                                <button onclick="sendChatMessage('Vocês têm blazers para ambiente de trabalho?', 'Temos sim! Nossa linha de Alfaiataria Paris tem elastano, excelente caimento e cores neutras sofisticadas. Quer receber o catálogo?')" 
+                                        class="text-left text-xs bg-white hover:bg-nude-100 text-olive-800 p-2.5 rounded-xl border border-gray-200 transition font-medium flex items-center justify-between">
+                                    <span>💼 Dica de Look para Trabalho</span>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-terracotta-500"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULÁRIO VIP DE CAPTURA PARA LANÇAMENTO -->
+    <section id="vip" class="py-20 bg-olive-800 text-nude-100 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+            <span class="inline-block bg-terracotta-500/20 text-terracotta-500 border border-terracotta-500/40 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">
+                Acesso Antecipado & Exclusividade
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal leading-tight text-white mb-4">
+                Receba em Primeira Mão a Nova Coleção
+            </h2>
+            <p class="text-nude-200 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed mb-8">
+                Nossas coleções são produzidas em tiragens limitadas para garantir o alto padrão de acabamento. Cadastre-se na Lista VIP para receber o catálogo com cupom de desconto exclusivo antes do lançamento oficial.
+            </p>
+
+            <!-- Form Card -->
+            <div class="bg-nude-100/10 backdrop-blur-md p-6 sm:p-10 rounded-3xl border border-nude-200/20 max-w-2xl mx-auto shadow-2xl">
+                <form id="vip-form" onsubmit="handleVipSubmit(event)" class="space-y-4 text-left">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-nude-200 mb-1 font-medium">Seu Nome Completo</label>
+                        <input type="text" required placeholder="Ex.: Maria Silva" 
+                               class="w-full bg-nude-100/10 border border-nude-200/30 rounded-xl px-4 py-3.5 text-sm text-white placeholder-nude-300 focus:outline-none focus:border-terracotta-500 transition">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-nude-200 mb-1 font-medium">WhatsApp</label>
+                            <input type="tel" required placeholder="(11) 99999-9999" 
+                                   class="w-full bg-nude-100/10 border border-nude-200/30 rounded-xl px-4 py-3.5 text-sm text-white placeholder-nude-300 focus:outline-none focus:border-terracotta-500 transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-nude-200 mb-1 font-medium">Seu Melhor E-mail</label>
+                            <input type="email" required placeholder="seuemail@exemplo.com" 
+                                   class="w-full bg-nude-100/10 border border-nude-200/30 rounded-xl px-4 py-3.5 text-sm text-white placeholder-nude-300 focus:outline-none focus:border-terracotta-500 transition">
+                        </div>
+                    </div>
+
+                    <button type="submit" 
+                            class="w-full bg-terracotta-500 hover:bg-terracotta-600 text-white py-4 rounded-xl font-medium text-xs sm:text-sm uppercase tracking-wider transition shadow-lg mt-2 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <span>Garantir Acesso à Lista VIP</span>
+                    </button>
+                </form>
+
+                <!-- Feedback Message -->
+                <div id="vip-success-message" class="hidden text-center py-6 space-y-3">
+                    <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-white font-bold">Inscrição Confirmada com Sucesso!</h3>
+                    <p class="text-xs text-nude-200 max-w-md mx-auto">Em breve você receberá uma mensagem exclusiva em seu WhatsApp com a prévia da nossa coleção e seu presente especial.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS REALISTAS DE CLIENTES -->
+    <section id="depoimentos" class="py-20 bg-FAF7F5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                <span class="text-terracotta-500 font-semibold tracking-widest text-xs uppercase">Experiências Reais</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif text-olive-800 font-normal">O Que Dizem Nossas Clientes</h2>
+                <p class="text-charcoal/70 text-sm font-light">A maior garantia da nossa qualidade é a satisfação de quem veste AURA diariamente.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Depoimento 1 -->
+                <div class="bg-nude-100 p-8 rounded-2xl border border-nude-200 shadow-sm flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-500 text-xs gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-charcoal/80 leading-relaxed italic">
+                            "Sempre tive extrema dificuldade em encontrar peças de alfaiataria que servissem bem nos meus braços sem ficar folgadas na cintura. O atendimento por WhatsApp foi impecável, tiraram todas as minhas dúvidas!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-nude-200">
+                        <div class="w-10 h-10 rounded-full bg-nude-300 flex items-center justify-center font-bold text-olive-800 text-sm">CR</div>
+                        <div>
+                            <h4 class="font-serif font-bold text-olive-800 text-base">Camila Rocha</h4>
+                            <p class="text-[10px] text-charcoal/60 uppercase tracking-wider">São Paulo - SP • Veste 50</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div class="bg-nude-100 p-8 rounded-2xl border border-nude-200 shadow-sm flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-500 text-xs gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-charcoal/80 leading-relaxed italic">
+                            "O tecido do vestido fluido é surreal! Não marca a barriga e tem um caimento muito chique. Recebi diversos elogios no evento que fui. Virei cliente fiel!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-nude-200">
+                        <div class="w-10 h-10 rounded-full bg-nude-300 flex items-center justify-center font-bold text-olive-800 text-sm">JM</div>
+                        <div>
+                            <h4 class="font-serif font-bold text-olive-800 text-base">Juliana Mendes</h4>
+                            <p class="text-[10px] text-charcoal/60 uppercase tracking-wider">Belo Horizonte - MG • Veste 48</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="bg-nude-100 p-8 rounded-2xl border border-nude-200 shadow-sm flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-500 text-xs gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-charcoal/80 leading-relaxed italic">
+                            "A caixa chegou super cheirosa e com um bilhete à mão lindo. A calça pantalona veste perfeitamente e o elástico atrás dá o conforto que eu precisava."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-nude-200">
+                        <div class="w-10 h-10 rounded-full bg-nude-300 flex items-center justify-center font-bold text-olive-800 text-sm">PR</div>
+                        <div>
+                            <h4 class="font-serif font-bold text-olive-800 text-base">Patricia Ribeiro</h4>
+                            <p class="text-[10px] text-charcoal/60 uppercase tracking-wider">Curitiba - PR • Veste 52</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (PERGUNTAS FREQUENTES SANFONA) -->
+    <section id="faq" class="py-20 bg-nude-100 border-t border-nude-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center space-y-3 mb-12">
+                <span class="text-terracotta-500 font-semibold tracking-widest text-xs uppercase">Esclareça suas Dúvidas</span>
+                <h2 class="text-3xl sm:text-4xl font-serif text-olive-800 font-normal">Perguntas Frequentes</h2>
+            </div>
+
+            <div class="space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="border border-nude-200 bg-white rounded-2xl overflow-hidden transition">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex items-center justify-between font-serif text-xl font-bold text-olive-800 focus:outline-none">
+                        <span>Como sei qual é o meu tamanho ideal?</span>
+                        <i class="fa-solid fa-plus text-sm text-terracotta-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-charcoal/80 leading-relaxed border-t border-nude-100 pt-4">
+                        Oferecemos uma Tabela de Medidas detalhada (em centímetros) para cada produto. Além disso, você pode chamar nossa consultora no WhatsApp informando suas medidas que indicaremos o tamanho perfeito!
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-nude-200 bg-white rounded-2xl overflow-hidden transition">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex items-center justify-between font-serif text-xl font-bold text-olive-800 focus:outline-none">
+                        <span>Quais tamanhos a loja atende?</span>
+                        <i class="fa-solid fa-plus text-sm text-terracotta-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-charcoal/80 leading-relaxed border-t border-nude-100 pt-4">
+                        Nossa grade é exclusivamente pensada e modelada para atender do tamanho 44 ao 56, respeitando proporções e garantindo elasticidade e conforto nas áreas necessárias.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-nude-200 bg-white rounded-2xl overflow-hidden transition">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex items-center justify-between font-serif text-xl font-bold text-olive-800 focus:outline-none">
+                        <span>Como funciona a primeira troca?</span>
+                        <i class="fa-solid fa-plus text-sm text-terracotta-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-charcoal/80 leading-relaxed border-t border-nude-100 pt-4">
+                        A primeira troca é totalmente grátis! Se por algum motivo a peça não servir ou não atender suas expectativas, você tem até 7 dias após o recebimento para solicitar a troca simples.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border border-nude-200 bg-white rounded-2xl overflow-hidden transition">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex items-center justify-between font-serif text-xl font-bold text-olive-800 focus:outline-none">
+                        <span>Quais as formas de pagamento e prazos de entrega?</span>
+                        <i class="fa-solid fa-plus text-sm text-terracotta-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-charcoal/80 leading-relaxed border-t border-nude-100 pt-4">
+                        Aceitamos Pix (com 5% de desconto) e Cartão de Crédito em até 6x sem juros. Entregamos via Correios (SEDEX/PAC) ou transportadora para todo o Brasil.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER COMPLETO -->
+    <footer class="bg-olive-900 text-nude-200 pt-16 pb-8 border-t border-olive-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-nude-100/10">
+                
+                <!-- Brand Info -->
+                <div class="md:col-span-4 space-y-4">
+                    <span class="font-serif text-3xl font-bold tracking-wider text-white">AURA</span>
+                    <p class="text-xs text-nude-200/80 leading-relaxed font-light">
+                        Marca especialista em moda plus size feminina de alta qualidade. Trazendo elegância, caimento perfeito e aconchego para mulheres reais.
+                    </p>
+                    <div class="flex space-x-4 text-lg text-nude-200">
+                        <a href="#" class="hover:text-terracotta-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-terracotta-500 transition"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="hover:text-terracotta-500 transition"><i class="fa-brands fa-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links 1 -->
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="font-serif text-lg font-bold text-white">Navegação</h4>
+                    <ul class="space-y-2 text-xs font-light">
+                        <li><a href="#colecoes" class="hover:text-terracotta-500 transition">Coleções Destaque</a></li>
+                        <li><a href="#consultoria" class="hover:text-terracotta-500 transition">Atendimento WhatsApp</a></li>
+                        <li><a href="#vip" class="hover:text-terracotta-500 transition">Lista VIP de Lançamento</a></li>
+                        <li><a href="#faq" class="hover:text-terracotta-500 transition">Trocas e Devoluções</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="md:col-span-5 space-y-3">
+                    <h4 class="font-serif text-lg font-bold text-white">Atendimento & Dúvidas</h4>
+                    <p class="text-xs text-nude-200/80">Segunda a Sexta, das 09h às 18h | Sábado, das 09h às 13h</p>
+                    <div class="space-y-2 text-xs">
+                        <p class="flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+                            <span>(11) 99999-9999</span>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <i class="fa-regular fa-envelope text-terracotta-500 text-sm"></i>
+                            <span>contato@auramodaplussize.com.br</span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Legal & Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-nude-200/60 space-y-4 sm:space-y-0">
+                <p>© 2026 AURA Moda Plus Size. Todos os direitos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:underline">Termos de Uso</a>
+                    <span>•</span>
+                    <a href="#" class="hover:underline">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRODUCT QUICK VIEW MODAL -->
+    <div id="product-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl transform transition-all relative">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-nude-100 hover:bg-nude-200 text-olive-800 flex items-center justify-center z-10">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                <div class="h-64 md:h-full bg-gray-100">
+                    <img id="modal-img" src="" alt="" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 md:p-8 space-y-4 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-terracotta-500 bg-nude-100 px-3 py-1 rounded-full">Provador Virtual</span>
+                        <h3 id="modal-title" class="font-serif text-2xl font-bold text-olive-800 mt-2"></h3>
+                        <p id="modal-price" class="text-xl font-bold text-terracotta-500 mt-1"></p>
+                        <p id="modal-desc" class="text-xs text-charcoal/80 leading-relaxed mt-3"></p>
+                    </div>
+                    
+                    <div class="space-y-3 pt-4 border-t border-gray-100">
+                        <a id="modal-whatsapp-link" href="#" target="_blank" 
+                           class="w-full flex items-center justify-center gap-2 bg-olive-800 hover:bg-olive-900 text-white py-3.5 rounded-xl text-xs uppercase font-semibold tracking-wider transition">
+                            <i class="fa-brands fa-whatsapp text-base text-emerald-400"></i>
+                            <span>Pedir Fotos Reais no WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Collection Filter Logic
+        function filterCategory(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-olive-800', 'text-nude-100');
+                btn.classList.add('text-charcoal');
+            });
+
+            const activeBtn = document.getElementById(`tab-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-olive-800', 'text-nude-100');
+                activeBtn.classList.remove('text-charcoal');
+            }
+
+            cards.forEach(card => {
+                if (category === 'todos' || card.dataset.category === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // WhatsApp Simulator Logic
+        function sendChatMessage(userMsg, botReply) {
+            const chatBox = document.getElementById('chat-box');
+
+            // User Bubble
+            const userBubble = document.createElement('div');
+            userBubble.className = "flex items-end justify-end gap-2 my-2";
+            userBubble.innerHTML = `
+                <div class="bg-olive-800 text-white p-3 rounded-2xl rounded-br-none shadow-sm max-w-[80%] space-y-1">
+                    <p>${userMsg}</p>
+                    <span class="text-[9px] text-nude-200 block text-right">Agora</span>
+                </div>
+            `;
+            chatBox.appendChild(userBubble);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Bot Typing delay simulation
+            setTimeout(() => {
+                const botBubble = document.createElement('div');
+                botBubble.className = "flex items-end gap-2 my-2";
+                botBubble.innerHTML = `
+                    <div class="bg-white p-3 rounded-2xl rounded-bl-none shadow-sm max-w-[80%] text-gray-800 space-y-1">
+                        <p class="font-semibold text-[11px] text-olive-800">Juliana (AURA)</p>
+                        <p>${botReply}</p>
+                        <span class="text-[9px] text-gray-400 block text-right">Agora</span>
+                    </div>
+                `;
+                chatBox.appendChild(botBubble);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 600);
+        }
+
+        // VIP Lead Capture Form Submission
+        function handleVipSubmit(e) {
+            e.preventDefault();
+            document.getElementById('vip-form').classList.add('hidden');
+            document.getElementById('vip-success-message').classList.remove('hidden');
+        }
+
+        // FAQ Accordion
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+
+            content.classList.toggle('hidden');
+            if (content.classList.contains('hidden')) {
+                icon.classList.replace('fa-minus', 'fa-plus');
+            } else {
+                icon.classList.replace('fa-plus', 'fa-minus');
+            }
+        }
+
+        // Product Modal Logic
+        function openProductModal(title, desc, price, img) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-price').innerText = price;
+            document.getElementById('modal-img').src = img;
+            
+            const waText = encodeURIComponent(`Olá! Gostaria de consultar mais fotos e tirar dúvidas sobre a peça: ${title}`);
+            document.getElementById('modal-whatsapp-link').href = `https://wa.me/5511999999999?text=${waText}`;
+
+            const modal = document.getElementById('product-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('product-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    </script>
+</body>
+</html>
